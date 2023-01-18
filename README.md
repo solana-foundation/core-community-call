@@ -17,3 +17,9 @@ Anyone is welcome to add an item to the agenda as long as it follows these guide
 - The topic is technical in nature
 - The topic involves the Solana protocol at a low-level. This means DApps development is not allowed.
 - The topic should not be philosophical. The Core Community Call is not meant to decide philosophical contentious issues that should be decided by the community. There are exceptions to this, but generally these topics distract from more productive technical discussion.
+
+## Previous Meetings
+
+ №  | Date                             | Notes          | Recording            |
+--- | -------------------------------- | -------------- | -------------------- |
+1 | Friday, December 16th, 2022 19:00 UTC | [Notes](core-community-call/call-notes/call_1.md) | [video](https://www.youtube.com/watch?v=XZhy9VFGKZc) |
