@@ -10,7 +10,7 @@ The Core Community Call is open for anyone to join and comment on. People that j
 
 ## Agendas
 
-The agendas for each upcoming call are tracked in the issues tab of this repository. To add an item to the agenda, add a comment to the current upcoming call issue which mentions the topic you'd like to discuss and links to any relevant material (SIMDs, POCs, etc).
+The agendas for each upcoming call are tracked in `/agenda`. To add an item to the agenda, PR to the latest agenda file mentioning the topic you'd like to discuss and links to any relevant material (SIMDs, POCs, etc).
 
 Anyone is welcome to add an item to the agenda as long as it follows these guidelines:
 
@@ -22,4 +22,5 @@ Anyone is welcome to add an item to the agenda as long as it follows these guide
 
  №  | Date                             | Notes          | Recording            |
 --- | -------------------------------- | -------------- | -------------------- |
-1 | Friday, December 16th, 2022 19:00 UTC | [Notes](core-community-call/call-notes/call_1.md) | [video](https://www.youtube.com/watch?v=XZhy9VFGKZc) |
+1 | Friday, December 16th, 2022 19:00 UTC | [Notes](call-notes/call_1.md) | [video](https://www.youtube.com/watch?v=XZhy9VFGKZc) |
+2 | Friday, January 20th, 2023 19:00 UTC | [Agenda](agenda/agenda_2.md) | [video](https://www.youtube.com/watch?v=SQXHgiUlU6E) |
