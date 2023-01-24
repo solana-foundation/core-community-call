@@ -13,7 +13,8 @@ Meeting Duration: 26 mins
 
 ### Meeting Notes
 
-### Introduction | [ 00:00](https://youtu.be/SQXHgiUlU6E)
+### Introduction 
+Video| [ 00:00](https://youtu.be/SQXHgiUlU6E)
 -|-
 
 **Jacob Creech:** Welcome all to the second core community call. There are a number of agenda items that we've proposed for this call. Currently, in the list is first going over program runtime V2 with Alexander, Alessandro, and Aditya as well if he is on this call.
