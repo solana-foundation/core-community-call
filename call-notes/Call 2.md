@@ -1,4 +1,4 @@
-#Core Community Call 2 Notes
+# Core Community Call 2 Notes
 
 Meeting Date/Time: Friday, January 20th, 2022 19:00 UTC
 
