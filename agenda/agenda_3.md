@@ -5,4 +5,8 @@
 
 **Agenda**
 
-TBD
+- Timely Vote Credits
+  * [SIMD](https://github.com/solana-foundation/solana-improvement-documents/pull/33)
+  * [First PR](https://github.com/solana-labs/solana/pull/29524)
+  
+- TBD
