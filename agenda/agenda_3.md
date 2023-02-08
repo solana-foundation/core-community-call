@@ -5,4 +5,5 @@
 
 **Agenda**
 
-TBD
+- [SIMD-16 - Application account write fees](https://github.com/solana-foundation/solana-improvement-documents/pull/16) 
+  [PR](https://github.com/solana-labs/solana/pull/30137)
