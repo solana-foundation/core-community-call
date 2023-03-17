@@ -4,6 +4,12 @@ The Core Community Call is a monthly meeting across Solana core protocol develop
 
 This repository is to collect the meeting notes and help define future call agendas.
 
+## How do I join the call?
+
+The core-community call runs monthly and their agendas can be found under `/agenda`.
+
+If you want to keep track of it, you can [add the core-community call to your calendar](https://calendar.google.com/calendar/u/0?cid=Y183MzUwZGY0NWVjNzZmYTMwZGUxNjEwNWZlNThkMGFhZTI4MzhlZThhOGM2NDNlMzRiODRmMmUyNThmNGM1ODZmQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20).
+
 ## Who can attend
 
 The Core Community Call is open for anyone to join and comment on. People that join the panel include core developers, SIMD authors, and researchers that are working on the core protocol.
@@ -23,4 +29,5 @@ Anyone is welcome to add an item to the agenda as long as it follows these guide
  №  | Date                             | Notes          | Recording            |
 --- | -------------------------------- | -------------- | -------------------- |
 1 | Friday, December 16th, 2022 19:00 UTC | [Notes](call-notes/call_1.md) | [video](https://www.youtube.com/watch?v=XZhy9VFGKZc) |
-2 | Friday, January 20th, 2023 19:00 UTC | [Agenda](agenda/agenda_2.md) | [video](https://www.youtube.com/watch?v=SQXHgiUlU6E) |
+2 | Friday, January 20th, 2023 19:00 UTC | [Notes](call-notes/call_2.md) [Agenda](agenda/agenda_2.md) | [video](https://www.youtube.com/watch?v=SQXHgiUlU6E) |
+3 | Friday, February 17th, 2023 19:00 UTC | [Agenda](agenda/agenda_3.md) | [video](https://www.youtube.com/watch?v=XkkxQAF-HhE)

@@ -5,4 +5,4 @@
 
 **Agenda**
 
-- TBD
+- [SIMD: Partitioned Epoch Reward Distribution](https://github.com/solana-foundation/solana-improvement-documents/pull/15)
