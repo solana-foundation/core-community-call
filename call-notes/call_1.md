@@ -1,5 +1,6 @@
 # Core Community Call 1 Notes
 
+
 Meeting Date/Time: Friday, December 16th, 2022 19:00 UTC
 
 Meeting Duration: 30 mins
