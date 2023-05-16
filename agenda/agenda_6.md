@@ -5,4 +5,4 @@
 
 **Agenda**
 
-- TBD
+- [SIMD-0046](https://github.com/solana-foundation/solana-improvement-documents/pull/46) Optimistic cluster restart automation
