@@ -5,4 +5,4 @@
 
 **Agenda**
 
-- TBD
+- [SIMD 0052](https://github.com/solana-foundation/solana-improvement-documents/pull/52)
