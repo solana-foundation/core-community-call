@@ -14,7 +14,7 @@ Meeting Duration: 31 mins
 
 1. [Jacob Creech](https://github.com/jacobcreech)
 2. [Anoushk | Tinydancer](https://github.com/anoushk1234)
-3. [Richie Patel](https://github.com/ripatel-jump)
+3. [Richie Patel](https://github.com/ripatel-jump) - (Refered to as Harsh by Jacob Creech)
 4. [ Alexander MeiBner ]
 5. [ Dubbel ]
 6. [Maximilian Schneider](https://github.com/mschneider)
@@ -114,7 +114,9 @@ Video | [11:08](https://youtu.be/9m_M8zEw1cE?t=668)
 
 The only downside would be that it is not baked into the core protocol. So, it would be optional to implement and the validators aren't really forced to make those attestations or commitments.
 
-So, this is where we end this presentation and want to hear more about the thoughts on the code from the community and open to any critics or questions. Thank you!
+So, this is where we end this presentation and want to hear more about the thoughts on the code from the community and open to any critics or questions. 
+
+Thank you!
 
 ### Further Discusions
 
@@ -125,7 +127,7 @@ Video | [12:05](https://youtu.be/9m_M8zEw1cE?t=725)
 
 **Richie Patel:**  Hey! So, want to say thanks a lot for working on this. I think this is a really nice initiative and it seems like a rather easy win complexity and wise for enabling this functionality.
 
-I would just like to voice my preference for going the gossip route. Any related method of doing it this way where we don't modify the core data structures to support this feature. I think my main problem with modifying the Proof of History hash would be that it is a quite breaking change of the definition what the Proof of History hash currently is. Where it would basically go from committing to the block data contents of the current block and all blocks before that to going to committing to the state changes that this block induces. And this would matter for [Firedancer](https://solana.com/ecosystem/firedancer) for example because we might use the PoH hash to identify the chain that Firedancer and Salana Labs are currently on and let's say for example we have a temporary mismatch in the runtime where we derive a slightly different state on both clients by redefining the Proof of History hash to potentially differ on both clients. I think it would be much harder to tolerate such runtime mismatches or even detect them as that would basically stop violence from synchronizing entirely rather than continuing replay with a slightly different state. And similarly, I think going the fast delay route doesn't seem too elegant to me because that would basically introduce minimum latency for the ligth clients where they would need to equip these and block speed 10 or so.
+I would just like to voice my preference for going the gossip route. Any related method of doing it this way where we don't modify the core data structures to support this feature. I think my main problem with modifying the Proof of History hash would be that it is a quite breaking change of the definition what the Proof of History hash currently is. Where it would basically go from committing to the block data contents of the current block and all blocks before that to going to committing to the state changes that this block induces. And this would matter for [Firedancer](https://solana.com/ecosystem/firedancer) for example because we might use the PoH hash to identify the chain that Firedancer and Salana Labs are currently on and let's say for example we have a temporary mismatch in the runtime where we derive a slightly different state on both clients by redefining the Proof of History hash to potentially differ on both clients. I think it would be much harder to tolerate such runtime mismatches or even detect them as that would basically stop validator from synchronizing entirely rather than continuing replay with a slightly different state. And similarly, I think going the force delay route doesn't seem too elegant to me because that would basically introduce minimum latency for the ligth clients where they would need to equip these and block speed 10 or so.
 
 I think regardless which way we choose. Maybe, I thought of splitting up the proposal into a few separates SIMDs. And then it would be much easier to vote on each one specifically because it feels like if we try to incorporate this entire feature into one, there is going to be a bit of discussion on it for quite a while. So, the first one that I thought of would be just agreeing on how we actually compute the commitment for the transaction statuses only. So, you know given a vector of transaction statuses what goes into the hash. So, do we just commit the transaction result code or do we also hash logs in some way and then define what the actual root of the transaction statuses is.
 
@@ -145,18 +147,66 @@ So, yeah just be careful about the transaction results, don't include too much e
 
 **Richie Patel:** I heard some feedback suggesting that we also add logs. I think logs are pretty scary because right now the truncation of logs is not well defined. But maybe, that's actually an opportunity to say that there is a recommendation to for example only do 256 byte long log lines. The concern I had there was how this would affect performance if we hash two or more char blocks for each program execution or so, would that limit the TPS in the future. I don't remember who it was, I think it was Mango, yeah I don't know.
 
-**Anoushk | Tinydancer:** I think the only concern was like with the overhead added by logs.But, I think you mentioned that with Firedancer's implementation of char. I think that might not be a problem.
+**Anoushk | Tinydancer:** I think the only concern was like with the overhead added by logs. But, I think you mentioned that with Firedancer's implementation of char. I think that might not be a problem.
 
-**Jacob Creech:**  Dubbel, your ready go ahead and start.
+**Jacob Creech:** Dubbel, you ready? go ahead and start.
 
-**Dubbel:** Yeah, no I just wanted to clarify actually for both Richie and Anoushk. When you say the gossip route you mean that there are going to be no consensus changes right? Like even the whatever the validators are voting on regarding the state or whatever state is necessary would be in like a separate smart contract? It wouldn't be part of the block?
+**Dubbel:** Yeah, no I just wanted to clarify actually for both Richie and Anoushk. When you say the gossip route, you mean that there are going to be no consensus changes right? Like even whatever the validators are voting on regarding the state or whatever state is necessary would be in like a separate smart contract? It wouldn't be part of the block?
 
-**Richie Patel:** Yes correct. It wouldn't even be in a
+**Richie Patel:** Yes correct. It wouldn't even be in a smart contract. It basically just so there is a structure called the [contact info](https://docs.rs/solana/latest/solana/contact_info/struct.ContactInfo.html). The contact info is a structure that every validator publishes regularly onto gossip. As far as I know there is already a snapshot hash and then the accounts hash. So, it seems like it would be fairly trivial to fit in another hash there so that is actually a bit more discussion around whether we should have an entirely separate hash for this, because usually if you are getting the transaction status commitments, you probably also want the account hashes and the problem with doing separate fields for this is that you basically have all validators signing separately. I think if we fit them all into the same contact info block that might not be a problem.
 
-## In Progress
+**Dubbel:** They also don't need to be at the same frequency right? How frequently is this contact info updated or how frequently do validators publish it?
 
-This is a work in progress and will continue to push updates within the next few days to complete this transcription.
+**Richie Patel:** The question for Solana Labs I think.
 
-Also, will appreciate any feedback and adjustment needed to incorporate to the final version.
+**Dubbel:** That's an implementation detail anyway, but I just wanted to be clear that in the gossip route there are no consensus changes right? So, even the transaction status or anything. The block structure doesn't really change, so Tinydancer won't be blocked in any way on that right?
 
-Thanks!
+**Richie Patel & Anoushk | Tinydancer:** Yes!
+
+**Dubbel:** Okay! yeah, just wanted to clarify that.
+
+**Jacob Creech:** Are there any other questions for Anoushk and Harsh?
+
+Carel, I think you mentioned that the Mango was they suggested using bi-directional connection? Max, I think you are here. Do you want to speak a little bit more on that?
+
+**Maximilian Schneider:** I am sorry, could you repeat on which one should I speak?
+
+**Jacob Creech:** Carel mentioned that you all suggested you use like bi-directional connection. I believe this was originally like a experimental feature that you all are implementing on the lab's client and it is like a client specific you all want to still relevant anymore?
+
+**Maximilian Schneider:** Yeah, I can give some background. So, for the people who are interested. What we did is when we run benchmarks on a local network will enable a patch on the TPU side to give us back basically a status like it's just a very short status that summarizes what happened with the transaction in the scheduler. This is very similar to I would say like request tracing environment that you would see in a commercial microservice architecture deployed in a private company, send something in from a low balancer right you want to trace for a limited amount of the requests in the network why they are not getting scheduled right. So, you get a a per request measurement that is actually complete because right now the measurements we have are statistical and broad. And it is very hard to say in particular which transaction like we just see all five out of 100 transactions had this issue right. But, we don't know what is wrong with these five transactions, why didn't they get into the block right? What were the five transactions that hit the CU limit or what were the five transactions that hit the I don't know 2000 packets per 10 per 100 milliseconds on a quick connection right. There are different limits in a stack and it's very hard to identify why a certain transaction didn't pass.
+
+That was the original intention there, but yeah I think there's a lot of pushback against this kind of I would say nice to have a feature. We really enjoyed having it for like local performance testing because we get more insights but yeah that's it.
+
+**Jacob Creech:** Richie!
+
+**Richie Patel:** I have looked at this a bit and it wouldn't seem that hard to support Firedancer and Solana Labs. and I think it had also be pretty nice to have clients to get explicit feedback about why the transaction might fail or not. And it seems like in financial kind of applications that would seem like a basic feature to have especially if they are user facing. Like if I go in my wallet and send a transaction and that gets dropped somewhere along along the path since this is a issue that would seem to directly affect the user experience of our clients. I think it would make sense to report that, but it requires a bit of Plumbing to get that data back to the networking layer. Because usually at the point of where you know where your transaction gets dropped you probably already anonymized the traffic flows where you don't have the IP addresses or quick connections anymore. So, I feel like this should be, I don't see why we wouldn't move to bi-directional connections just have the ability to do this kind of reverse for feedback in the future and then we could just maybe publish this in the SIMD specifying what the protocol should be for reverse flow feedback and then I think as time goes on we had see more Solana Labs clients adopt this and finance the clients.
+
+What was the specific feedback why this wouldn't be a good idea?
+
+**Maximilian Schneider:** I think there's a couple of like performance questions there right. So, I think the main issue is that it kind of like creates risk on the security DDOS protection side.
+
+**Richie Patel:** Oh! I think I know where this is going so currently every transaction is a separate uni-direction streaming after you send it. It gets closed, so if there is reversal feedback maybe that can force the client to keep open these streams for a longer by just saying hey I dropped these packets please send them to me again. But that should be easy to fix by for example they are delivering this feedback with datagrams or with you know a persistent stream. I still don't really see why we shouldn't do it if the status is easily available.
+
+I see Galactus from Mango.
+
+**Jacob Creech:** hmmm!
+
+**Galactus | Mango Market:** So, yeah it's actually like what we implemented is more like you have this with Solana client, we cannot really implement this bi-directional stuff because once you get that connection it is dropped immediately after reading. So, what we implemented is a separate service where like a validator can connect and then it can say like list of transactions that it wants feedback for. And so actually, whatever is executed like for X reason is dropped. Then we just send why it was dropped actually.
+
+So, it is more like a separate service. It's not in the same even in the same like TPU or client TPU server.
+
+**Richie Patel:** I see, I mean it would seem a bit cleaner to just deliver acknowledgments after.
+
+**Galactus | Mango Market:** Yeah, I would also like to have like a bi-directional channel where you just send a transaction and get a feedback like why it was dropped. But, yeah like on the validators side, there are like a lot of limits and the connection can be dropped for a lot of reasons and it was quite impossible just to keep the connection up. So, we said okay forget, we will just have a new separate service. But yeah of course I agree like we can have this bi-directional connection of quick and then we will just get a feedback for our transaction.
+
+**Richie Patel:** I think if you install a mechanism to signal optional features in the quick handshake itself. It should be pretty easy to trial out features like this on a real cluster without affecting reliability too much or without introducing breaking changes. But, it seems like it needs a bit more time on finding out what the actual right protocol is for delivering this feedback.
+
+**Galactus | Mango Market:** Yeah! I agree. Yeah, because right now we don't have like a lot of bits remaining just to have and give accurate acknowledgment while closing or even in the acknowledgment packets. Yeah maybe, we have to find another mechanism to get this acknowledgment. I agree with you.
+
+**Jacob Creech:** We are a few minutes over time. So, I think we will have to do as well to continue the discussion probably open on up the PR that is on this as well as the discussion on SIMD 0052 earlier.
+
+Thank you all for coming this month and I will see you all next month for the next SIMD call.
+
+Reminder if you have any agenda items, make sure you do a PR to the next agenda so that we get it earlier rather than later and people can read any additional information beforehand. So, we have a better discussion.
+
+Thank you!
