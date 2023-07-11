@@ -14,11 +14,12 @@ Meeting Duration: 31 mins
 
 1. [Jacob Creech](https://github.com/jacobcreech)
 2. [Anoushk | Tinydancer](https://github.com/anoushk1234)
-3. [Richie Patel](https://github.com/ripatel-jump) - (Refered to as Harsh by Jacob Creech)
+3. [Richie Patel](https://github.com/ripatel-jump)
 4. [ Alexander MeiBner ]
 5. [ Dubbel ]
 6. [Maximilian Schneider](https://github.com/mschneider)
 7. [Galactus | Mango Market](https://github.com/godmodegalactus)
+8. [ Harsh Patel | Tinydancer] - Not available in the call eventually but Jacob Creech mentioned him twice to check if he joined the call. Added his name here just for clarity and not take him as been the same speaker named Richie Patel.
 
 ## Meeting Notes
 
