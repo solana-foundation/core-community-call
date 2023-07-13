@@ -40,7 +40,7 @@ Video |  [00:35](https://youtu.be/9m_M8zEw1cE?t=35)
 
 **Anoushk | Tinydancer:** Yeah, thanks for the intro Jacob, let me just share my screen.
 
-Yeah, thanks everyone for joining in, giving your time. I am Anoushk from the Tinydance team and we have been working on implementing the light clients for Solana. We drafted SIMD 0052 for adding transaction proof verification. So, today we are going to give a brief
+Yeah, thanks everyone for joining in, giving your time. I am Anoushk from the Tinydancer team and we have been working on implementing the light clients for Solana. We drafted SIMD 0052 for adding transaction proof verification. So, today we are going to give a brief
 overview of our research on it.
 
 So, I had like to start with why we are doing this, the motivation behind this SIMD is primarily to implement light clients for Solana. The reason we need light clients is because users need to verify queries that they make to the RPC, and right now they cannot do that. Which is why they have to trust the RPC that they give them the correct data. These light clients need to be low Hardware pieces of software and they need to be able to run on a phone or browser. So, this is really important for security for blockchain network as we already know, more mature networks like Ethereum that have been there for longer already have light clients and this was a glaring problem in Solana.
