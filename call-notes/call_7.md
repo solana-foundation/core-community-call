@@ -94,7 +94,7 @@ Video | [08:20](https://youtu.be/9m_M8zEw1cE?t=500)
 
 Again, this is also a major change so comes with the challenges of the first way to implement it.
 
-Yeah, so this is part of the second method which we were told that implementing changing the bank hash would somehow come in the way of backless leaders. So, if we implement this which is basically have the state of block `n` in block `n + 10`. You actually don't need to execute the transactions of block `n` to get the statuses and then you now have to compute it back to the bank hash. So, you could just do that in a sort of async way but this also would be a pretty major change to the protocol and that is also something that needs to be heavily considered if you are deciding to go over this.
+Yeah, so this is part of the second method which we were told that implementing changing the bank hash would somehow come in the way of bankless leaders. So, if we implement this which is basically have the state of block `n` in block `n + 10`. You actually don't need to execute the transactions of block `n` to get the statuses and then you now have to compute it back to the bank hash. So, you could just do that in a sort of async way but this also would be a pretty major change to the protocol and that is also something that needs to be heavily considered if you are deciding to go over this.
 
 ### Implementation (Method 3)
 
