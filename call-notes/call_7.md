@@ -65,7 +65,7 @@ Video | [05:30](https://youtu.be/9m_M8zEw1cE?t=330)
 
 **Anoushk | Tinydancer:**  In our SIMD right now we are really implementing the first way which is modifying the block hash to include statuses but over the last week after discussing with some members of the [Jump team](https://jumpcrypto.com/firedancer/) and other members of Solana Labs. We also found different ways to implement it to tackle different issues that may arise while implementing the first method, that is modifying the block hash. So I am going to dive into each of these very briefly.
 
-So, modifying the block hash is pretty straightforward and again part of the history proposal so all it does is you add the transaction status along with the transaction signature into the merkle tree of the transactions which is part of each entry. And that gets hashed, gets mobilized into the block hash and becomes part of the bank hash. Currently, the block hash is a sequential hash of all the entries but making it would be better in terms of verification size and obviously having the status is important for verifying if transaction actually succeeded.
+So, modifying the block hash is pretty straightforward and again part of the proposal so all it does is you add the transaction status along with the transaction signature into the merkle tree of the transactions which is part of each entry. And that gets hashed, gets mobilized into the block hash and becomes part of the bank hash. Currently, the block hash is a sequential hash of all the entries but making it would be better in terms of verification size and obviously having the status is important for verifying if transaction actually succeeded.
 
 #### Pros and Cons (Method 1)
 
