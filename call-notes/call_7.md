@@ -167,7 +167,7 @@ So, yeah just be careful about the transaction results, don't include too much e
 
 **Jacob Creech:** Are there any other questions for Anoushk and Harsh?
 
-Carel, I think you mentioned that the Mango was they suggested using bi-directional connection? Max, I think you are here. Do you want to speak a little bit more on that?
+Kirill, I think you mentioned that the Mango was they suggested using bi-directional connection? Max, I think you are here. Do you want to speak a little bit more on that?
 
 **Maximilian Schneider:** I am sorry, could you repeat on which one should I speak?
 
