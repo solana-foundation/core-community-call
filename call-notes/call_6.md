@@ -54,7 +54,7 @@ So yeah, thanks everyone who's already upgraded. And looking forward to getting 
 Video |  [02:35](https://youtu.be/GA5AVg_svj8?t=150)
 -|-
 
-**Wen Xu:** Oh! okay, let's share my slides first and I can present it slide show and shares screen. Sorry, what I should explain. So, hello and to those who I haven't met yet, I am `Wen`, joined  Solana Labs last September and personally I am working on consensus. Personally, I am interested in like high performance and high-reliability system design.
+**Wen Xu:** Oh! okay, let's share my slides first and I can present it. Slide show and share screen. Sorry, what I should explain. So, hello and to those who I haven't met yet, I am Wen, joined  Solana Labs last September and personally I am working on consensus. Personally, I am interested in like high performance and high-reliability system design.
 
 Sorry for wasting time, I don't see my slides to share. I can share my whole screen maybe.
 
