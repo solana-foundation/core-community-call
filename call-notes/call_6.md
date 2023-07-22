@@ -45,7 +45,7 @@ In case anyone hasn't seen it yet I would encourage you to read the [outage repo
 
 So yeah, thanks everyone who's already upgraded. And looking forward to getting the rest of the cluster on [v1.14](https://solana.com/news/solana-validators-v1-14-upgrade) soon.
 
-**Jacob Creech:** All right, `Wen` you're up?
+**Jacob Creech:** All right, Wen you're up?
 
 ### SIMD 0046
 
