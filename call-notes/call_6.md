@@ -91,7 +91,7 @@ Video |  [16:40](https://youtu.be/GA5AVg_svj8?t=1000)
 
 **Wen Xu:** So, I am just going to generally introduce the silent repair phase and then we can go proceed to questions. So first of all when you restart a validator with this new arguments. Immediately we send the LastVotedForkSlots which is what you voted last and all the slots on this fork. And after that, everyone aggregates the LastVotedForkSlots from all the other restarted validators. And you could start repairing your slot if you think this slot could potentially have been up, it's confirmed before the restart. And we could draw a line somewhere to say these are the candidates which could have been confirmed before the slot and the other blocks I don't care. So, you repair all the blocks you care and after we repaired all of them, you aggregate all the last votes in the LastVotedForkSlots and choose your HeaviestFork.
 
-So, I think we are at 20 minutes now. I don't know whether I have introduced the new method enough so everyone has good grabs. But, we could we could see if anyone has any questions at this point. Hello, or I can proceed if no one has questions.
+So, I think we are at 20 minutes now. I don't know whether I have introduced the new method enough so everyone has good grasp. But, we could we could see if anyone has any questions at this point. Hello, or I can proceed if no one has questions.
 
 **Jacob Creech:** Does anybody have any questions currently on the current approach or should we just continue?
 
