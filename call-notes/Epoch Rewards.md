@@ -93,7 +93,8 @@ The relationship between the hash and the root hash in the Epoch history sysvar 
 Video | [8:40](https://youtu.be/IbviAInuSHk?list=PLilwLeBwGuK7e_mH_sFwTytYQxalh7xd5&t=520)
  -|-
 
-There are a few differences with the new reward scheme than the older one. The first one is that we restrict stake account access during the rewarding period, which means any withdrawal, merge split stakes or any statement manipulation have to wait until the rewards finished. If any transactions that involve those operations was submitted during the reward paying out period. They will get a transaction error. We will introduce a new transaction error for it. Let's lock the reward icon during Epoc reward that's the first impact. 
+There are a few differences with the new reward scheme than the older one. The first one is that we restrict stake account access during the rewarding period, which means any withdrawal, merge split stakes or any statement manipulation have to wait until the rewards finished. If any transactions that involve those operations was submitted during the reward paying out period. They will get a transaction error. We will introduce a new transaction error for it. Let's lock the reward account during Epoc reward that's the first impact. 
+
 
 The second impact is that since now the rewards are going to be paid out in multiple blocks there will be changes for snapshot and the cluster restart during those reward periods to accommodate this reward distribution over multiple blocks. So for any snapshots that are taken during the reward period, we will include a new field in a snapshot that stores the reward calculation result. That's how much rewards are going to be distributed and when the cluster restarts from a snapshot taken during the reward period it will have to load the result and resume the rewarded distribution process as if it was going on before it restarted.
 
