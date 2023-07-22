@@ -78,7 +78,8 @@ With the new approach the rewards are not going to be distributed at one particu
 Video | [6:55](https://youtu.be/IbviAInuSHk?list=PLilwLeBwGuK7e_mH_sFwTytYQxalh7xd5&t=416)
  -|-
 
-The second is that the account to introduce is called Epoch reward reserve. As I mentioned earlier in reward distribution, each block of all the rewards are going to be distributed in M blocks so we introduced the second set of sysvars this is basically M sysvars that keeps tracks of all the rewards that are going to be distributed in one block and similarly it has a balance field in which it describes how much rewards are going to be distributed for this particular block and it also has a hash that's the hash of all the rewards are going to be distributed in this block and since we have a M sysvar account, so the address of the of the one particular system account for a particular block is basically determined by harsh, the base ID to the block height then we will get the unique address for the rewards going to be distributed.
+The second Sysvar account to introduce is called Epoch reward reserve. As I mentioned earlier in reward distribution, each block of all the rewards are going to be distributed in M blocks so we introduced the second set of sysvars this is basically M sysvars that keeps tracks of all the rewards that are going to be distributed in one block and similarly it has a balance field in which it describes how much rewards are going to be distributed for this particular block and it also has a hash that's the hash of all the rewards are going to be distributed in this block and since we have M sysvar account, so the address of the of the one particular system account for a particular block is basically determined by hash, the base ID to the block height then we will get the unique address for the rewards going to be distributed.
+
 
 ### Reward Hash  
 
