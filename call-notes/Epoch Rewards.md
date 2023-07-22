@@ -133,7 +133,8 @@ Yeah, let's go into Q and A sessions if you have any.
 **Attendee 3**: Yeah, basically. It'll depend on how much complexity there ends up being in the final thing. I don't anticipate it being that difficult. This could probably be like an RPC helper versus an actual RPC endpoint, but I think it'll be fairly trivial to put together a way to equivalently get, I mean, admittedly, it's going to be a little heavier because you have to get multiple blocks, right? 
 
 
-**Attendee 1** :  Okay. And I do have another question, but I don't want to monopolize this, so I'll wait to see if other people have a question first.
+**Zantetsu** :  Okay. And I do have another question, but I don't want to monopolize this, so I'll wait to see if other people have a question first.
+
 
 **Jacob Creech**: All right, next question.
 
