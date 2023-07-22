@@ -121,7 +121,8 @@ Yeah, let's go into Q and A sessions if you have any.
 
 **Attendee 2**: No, no, I mean, you can just query all of the blocks in that case. Like, if you need to do a large range of rewards, you just get the entire payout or distribution block range for the slots. They're basically, gotta get blocks with a limit call with whatever the duration of the distribution.
 
-**Attendee 1**:  So basically what you have been watching has been reached when all the distribution is completed, and then make that call. Is that what you're suggesting? 
+**Zantetsu**:  So basically are you watching when that point has been reached when all the distribution is completed, and then make that call. Is that what you're suggesting? 
+
 
 
 **Anatoly Yakovenko**: It’s deterministic, Yeah, you know, it's over by the thousandth block after the epoch, so you can just make the call right there instead, right?
