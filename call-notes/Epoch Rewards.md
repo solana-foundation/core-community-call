@@ -63,7 +63,8 @@ Video | [4:45](https://youtu.be/IbviAInuSHk?list=PLilwLeBwGuK7e_mH_sFwTytYQxalh7
 -|-
 
 So, following the reward calculation is the reward distribution. 
-Similarly, reward distribution happens over M blocks and to minimize the impact of all the block and other transaction processing during the rewarding period, we are targeting to reward basically only 64  accounts for every tick since each block has 64 ticks so that will give us about 4K total rewards that can be distributed in one block and the reward distribution of what happens in the block before any transaction processing.
+Similarly, reward distribution happens over M blocks and to minimize the impact of all the block and other transaction processing during the rewarding period, we are targeting to reward basically only 64 accounts for every tick since each block has 64 ticks so that will give us about 4K total rewards that can be distributed in one block and the reward distribution happens in the block before any transaction processing.
+
 
 ### Epoch Reward History Sysvar Account  
 Video | [5:31](https://youtu.be/IbviAInuSHk?list=PLilwLeBwGuK7e_mH_sFwTytYQxalh7xd5&t=331)
