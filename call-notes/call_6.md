@@ -26,7 +26,7 @@ Video| [00:00](https://youtu.be/GA5AVg_svj8?t=1)
 
 **Jacob Creech:** So, welcome everyone to this month's core community call. There is a couple of things on the agenda. So, the first thing that we are going to hear from Will before Xu Wen.
 
-`Will` about the upcoming release changes that they have or that they are pushing.
+Will about the upcoming release changes that they have or that they are pushing.
 
 And then, we will hear from `Wen` on [SIMD-0046](https://github.com/solana-foundation/solana-improvement-documents/pull/46).
 
