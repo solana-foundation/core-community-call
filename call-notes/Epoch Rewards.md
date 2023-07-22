@@ -174,7 +174,8 @@ I think it was Jeff, so go ahead, Jeff, you should be able to unmute to ask your
 **Anatoly Yakovenko**: It samples a thousand slots, right? So it kind of spreads the workout out of everyone. You'd be kind of paying everyone equally, which means there's a no-up. 
 
 
-**Attendee 6**: Except the dudes that are unfortunate and only get one block in the first, you know, about, well, whatever it tastes like. That's cool.
+**Zantetsu**: Except the dudes that are unfortunate and only get one block in the first, you know, about, well, whatever its fine. That's cool.
+
 
 **Jacob Creech**:  All right, is there any other questions about this, the epoch reward changes? Okay, cool. So this is a SIMD still. I put the link in the chat for everyone to add to the discussion later, SIMD-15. You're welcome to discuss it for the next rest of the time on this call. I'd like to open the floor for anybody that has just general Q&A questions. Just feel free to raise your hand, and I'll give you access to speak, and you can ask your question.
 
