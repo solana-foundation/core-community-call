@@ -113,7 +113,8 @@ Yeah, let's go into Q and A sessions if you have any.
 
 **Audience 2**: I can address a little bit of this. Since the rewards slot or blocks are gonna be paid out, and are gonna be deterministic, you're actually going to be able to generate a query based on which stake account or validator you want to know the rewards for. So we can actually make RPC queries that function the same. It will need some extension, but it'll be slightly different from what we have today.
 
-**Audience 1**: Per validator? And have to make, like, 2,000 queries or something. Is that what you're saying? 
+**Zantetsu**: Per validator? And have to make, like, 2,000 queries or something. Is that what you're saying? 
+
 
 **Attendee 2**: No, no, I mean, you can just query all of the blocks in that case. Like, if you need to do a large range of rewards, you just get the entire payout or distribution block range for the slots. They're basically, gotta get blocks with a limit call with whatever the duration of the distribution.
 
