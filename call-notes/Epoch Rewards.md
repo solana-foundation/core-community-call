@@ -86,7 +86,8 @@ The second Sysvar account to introduce is called Epoch reward reserve. As I ment
 Video | [7:58](https://youtu.be/IbviAInuSHk?list=PLilwLeBwGuK7e_mH_sFwTytYQxalh7xd5&t=478)
  -|-
 
-The relationship between the hash and the root hash in the Epoch history sysvar is the root hash as we seen earlier here, this is the root hash and it's computed by accumulating all the hashes from all the reserves together. So after we credit all the reserves, credit order rewards from the reserves we will compare the hash against the rule hash to make sure they match each other so that we can be sure that the reward distribution is correct. Okay,  that's the main changes of the proposal.
+The relationship between the hash and the root hash in the Epoch history sysvar is the root hash as we seen earlier here, this is the root hash and it's computed by accumulating all the hashes from all the reserves together. So after we credit all the reserves, credit order rewards from the reserves we will compare the hash against the root hash to make sure they match each other so that we can be sure that the reward distribution is correct. Okay,  that's the main changes of the proposal.
+
 
 ### Impact
 Video | [8:40](https://youtu.be/IbviAInuSHk?list=PLilwLeBwGuK7e_mH_sFwTytYQxalh7xd5&t=520)
