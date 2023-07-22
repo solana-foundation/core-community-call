@@ -33,7 +33,8 @@ Video |[ 00:00](https://www.youtube.com/watch?v=IbviAInuSHk&list=PLilwLeBwGuK7e_
 Video | [1:17](https://youtu.be/IbviAInuSHk?list=PLilwLeBwGuK7e_mH_sFwTytYQxalh7xd5&t=77)
 -|-
 
-Here is some background information, we are experiencing a very long block time at the epoch boundary, the following table shows the example of the timing for the block time and around  at the epoch 400 we can see that the the highest number around for 90 percent of the validators are mainnet for this particular block along the epoch boundary it will take around 38 seconds and we need to address this scalability issue.
+Here is some background information, we are experiencing a very long block time at the epoch boundary, the following table shows the example of the timing for the block time and around  at the epoch 400 we can see that the the highest number around for 90 percent of the validators are mainnet for this particular block along the epoch boundary it will take around 38 seconds.
+
 
 **Jacob Creech:** Haron I believe you're not showing a presentation. You're just showing your code right now, must say you're showing your Visual Studio code.
 
