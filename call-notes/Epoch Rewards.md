@@ -142,7 +142,8 @@ Yeah, let's go into Q and A sessions if you have any.
 
 **Jacob Creech**: All right, next question.
 
-I think it was Jeff, so go ahead, Jeffy, you should be able to unmute to ask your question. 
+I think it was Jeff, so go ahead, Jeff, you should be able to unmute to ask your question. 
+
 
 **Jeff** : Oh, sorry, my mistake. 
 
