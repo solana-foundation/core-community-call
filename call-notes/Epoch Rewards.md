@@ -159,7 +159,8 @@ I think it was Jeff, so go ahead, Jeffy, you should be able to unmute to ask you
 
 **Zantetsu**: Yeah, I agree. That sounds better. I was just wondering if there's an opportunity to sort of like make that even more addressed by sort of paying a validator for having to do this. Just putting it out there. 
 
-**Attendee 5**: It samples a thousand slots, right? So it kind of spreads the workout out of everyone. You'd be kind of paying everyone equally, which means there's a no-up. 
+**Anatoly Yakovenko**: It samples a thousand slots, right? So it kind of spreads the workout out of everyone. You'd be kind of paying everyone equally, which means there's a no-up. 
+
 
 **Attendee 6**: Except the dudes that are unfortunate and only get one block in the first, you know, about, well, whatever it tastes like. That's cool.
 
