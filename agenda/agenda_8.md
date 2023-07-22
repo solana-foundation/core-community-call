@@ -1,8 +1,8 @@
 **Meeting Info**
 - July 21, 2023 18:00 UTC
 - Duration: 30 minutes
-- Zoom: To be shared in the #core-community-call channel on Solana Tech Discord
+- Zoom: https://solana-foundation.zoom.us/j/88507949432?pwd=U2tNVVU3SG1XRkxaQ3ZnamRUMzhiUT09
 
 **Agenda**
 
-- TBD
+- [SIMD-57 Events](https://github.com/solana-foundation/solana-improvement-documents/pull/57)
