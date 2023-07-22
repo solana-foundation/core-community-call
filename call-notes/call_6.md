@@ -28,7 +28,7 @@ Video| [00:00](https://youtu.be/GA5AVg_svj8?t=1)
 
 Will about the upcoming release changes that they have or that they are pushing.
 
-And then, we will hear from `Wen` on [SIMD-0046](https://github.com/solana-foundation/solana-improvement-documents/pull/46).
+And then, we will hear from Wen on [SIMD-0046](https://github.com/solana-foundation/solana-improvement-documents/pull/46).
 
 Before I get started I wanted to first call out that if you ever want to see the agenda for the meeting, you can always go to the core community call repo which I just linked in the chat. And then, there's two SIMDs that would be or that are getting close to consensus on. So, it would be great if people could find time to give your review on them. The first one is [SIMD 33](https://github.com/solana-foundation/solana-improvement-documents/blob/main/proposals/0033-timely-vote-credits.md) which is the timely vote credits. And then, the previous one which we actually already merged in but would love to have any extra eyes on it would be the [SIMD 15](https://github.com/solana-foundation/solana-improvement-documents/blob/main/proposals/0015-partitioned-epoch-reward-distribution.md) which is partition Epoch Rewards.
 
