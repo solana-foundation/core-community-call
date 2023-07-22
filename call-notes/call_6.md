@@ -95,7 +95,7 @@ So, I think we are at 20 minutes now. I don't know whether I have introduced the
 
 **Jacob Creech:** Does anybody have any questions currently on the current approach or should we just continue?
 
-Alright go ahead and continue then `Wen`.
+Alright go ahead and continue then Wen.
 
 #### Exit Silent Repair Phase
 
