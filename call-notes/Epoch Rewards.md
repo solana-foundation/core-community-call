@@ -158,7 +158,8 @@ I think it was Jeff, so go ahead, Jeff, you should be able to unmute to ask your
 
 **Jacob Creech**: Okay, Zans, you're welcome to ask your question. 
 
-**Zantetsu**: Okay, so is it the case that validators will only validate a block if the leader producing that block has the appropriate amount of either computation work or rewards pair of work in that block? Or is it the case that a validator can just sort of decide not to do it on their block and be like, "I've modified the code to not do this because I don't want to burn the CPU on this and it doesn't give me any rewards, so I'm just not going to do it?" Or is that even a possibility? Or is it the case that the cluster won't even accept a block unless it includes these details because they're expected for... I mean, they're sort of built into the protocol that this has to happen in this order. 
+**Zantetsu**: Okay, so is it the case that validators will only validate a block if the leader producing that block has the appropriate amount of either computation work or rewards payout of work in that block? Or is it the case that a validator can just sort of decide not to do it on their block and be like, "I've modified the code to not do this because I don't want to burn the CPU on this and it doesn't give me any rewards, so I'm just not going to do it?" Or is that even a possibility? Or is it the case that the cluster won't even accept a block unless it includes these details because they're expected for... I mean, they're sort of built into the protocol that this has to happen in this order. 
+
 
 **Haoran**: Yes, because the order is deterministic  for the current epoch, but there will be some randomness across different epochs. So if the leader, for example, doesn't include the expected set of rewards in the block, I think the hashes will mismatch and his block will be rejected. 
 
