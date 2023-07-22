@@ -108,7 +108,7 @@ And then, you can perform security checks. Check one is, did everyone agree on t
 
 So, I have a few links. One is a [Google doc](https://docs.google.com/document/d/1RkNAyz-5aKvv5FF44b8SoKifChKB705y5SdcEoqMPIc/edit?usp=sharing) I started when the proposal was just starting. So it contains many details and a lot of designs we rejected and why. Because I am currently modifying both the SIMD draft and this Google doc. So this Google doc might be outdated and so some design choices might be different if that's the case SIMD is the newest proposal. And the actual SIMD draft here as well. And this is why I'm asking whether you have any questions again. 
 
-So, I haven't described the details of the algorithm. I have backup slide at the end to talk about. There are basically two algorithms, one is `how we calculate which blocks I should repair when I have all the LastVotedForkSlots`. And the other is `how do I select a block in the HeaviestFork`. So these two algorithms are in the SIMD and I also have some description here.
+So, I haven't described the details of the algorithm. I have backup slide at the end to talk about. There are basically two algorithms, one is how we calculate which blocks I should repair when I have all the LastVotedForkSlots. And the other is how do I select a block in the HeaviestFork. So these two algorithms are in the SIMD and I also have some description here.
 
 #### Questions
 
