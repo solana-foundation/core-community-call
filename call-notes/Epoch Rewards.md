@@ -121,7 +121,8 @@ Yeah, let's go into Q and A sessions if you have any.
 **Attendee 1**:  So basically what you have been watching has been reached when all the distribution is completed, and then make that call. Is that what you're suggesting? 
 
 
-**Attendee 3**: It’s deterministic, Yeah, you know, it's over by the thousandth block after the epoch, so you can just make the call right there instead, right?
+**Anatoly Yakovenko**: It’s deterministic, Yeah, you know, it's over by the thousandth block after the epoch, so you can just make the call right there instead, right?
+
 
 **Attendee 2**:  So today, where you just know that it's, you know, the first block in the epoch, now it's going to be, you know, the thousandth block, or that, you know, however many blocks before. I don't think any of this is fully parameterized yet. 
 
