@@ -166,7 +166,8 @@ I think it was Jeff, so go ahead, Jeff, you should be able to unmute to ask your
 **Zantetsu**: Okay, so this part of the block does go into the hash so that validators have to agree on it to vote on it. So I guess that answers my question and we just kind of accept that the first leader kind of has to do his work without any compensation. That's just kind of built into the protocol. There's no need to add any compensation for doing this work. It's not expected to impact the transactions that could be fit into a block. Like, it doesn't take up extra block space or extra compute time that could prevent a validator from including as many transactions as it would otherwise.
 
 
-**Attendee 4**:  It's the same problem as we have right now with only one, whatever that first leader or like whatever that first block is, kind of gets screwed on including transactions because everyone is computing this. So you'd have this, it's just spreading out the computation to make it more feasible. 
+**Anatoly Yakovenko**:  It's the same problem as we have right now with only one, whatever that first leader or like whatever that first block is, kind of gets screwed on including transactions because everyone is computing this. So you'd have this, it's just spreading out the computation to make it more feasible. 
+
 
 **Zantetsu**: Yeah, I agree. That sounds better. I was just wondering if there's an opportunity to sort of like make that even more addressed by sort of paying a validator for having to do this. Just putting it out there. 
 
