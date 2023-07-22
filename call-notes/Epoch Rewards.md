@@ -25,7 +25,8 @@ Video |[ 00:00](https://www.youtube.com/watch?v=IbviAInuSHk&list=PLilwLeBwGuK7e_
 
 **Anatoly:** Let's go ahead.
 
-**Haoran:** Good afternoon, everyone. My name is Haoran, and I work for Solana Labs. In this talk, I'm going to give a brief introduction about the new epoch reward proposal. We are discussing the following [link](https://github.com/solana-foundation/solana-improvement-documents/pull/15) as a SIMD pull request. 
+**Haoran:** Good afternoon, everyone. My name is Haoran, and I work for Solana Labs. In this talk, I'm going to give a brief introduction about the new epoch reward proposal. We are discussing in the following [link](https://github.com/solana-foundation/solana-improvement-documents/pull/15) as a SIMD pull request. 
+
 
 
 ### Background 
