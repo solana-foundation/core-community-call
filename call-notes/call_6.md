@@ -43,7 +43,7 @@ Video |  [01:06](https://youtu.be/GA5AVg_svj8?t=66)
 
 In case anyone hasn't seen it yet I would encourage you to read the [outage report from the February outage](https://solana.com/news/02-25-23-solana-mainnet-beta-outage-report). At that time, it was widely believed that outage was caused by the v1.14.16 upgrade. That was definitely not the case. I will drop a link to that report in just a moment in the chat here it is also linked in the MB announcements channel on Discord. We also have some audit reports that we will be publishing later today related to [v1.14](https://github.com/solana-labs/security-audits). Feel free to peruse those there is nothing scary in them. If there were, we wouldn't be shipping the release but you know it might give you some peace of mind and some interesting reading.
 
-So yeah, thanks everyone who's already upgraded. And looking forward to getting the rest of the questions on [v1.14](https://solana.com/news/solana-validators-v1-14-upgrade) soon.
+So yeah, thanks everyone who's already upgraded. And looking forward to getting the rest of the cluster on [v1.14](https://solana.com/news/solana-validators-v1-14-upgrade) soon.
 
 **Jacob Creech:** All right, `Wen` you're up?
 
