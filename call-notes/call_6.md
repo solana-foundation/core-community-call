@@ -137,7 +137,7 @@ Video |  [22:59](https://youtu.be/GA5AVg_svj8?t=1379)
 
 **Mango Team:** Okay! yeah, it makes sense yeah.
 
-**Anonymous:** There shouldn't actually be any changes to that proposal because once we've committed to restarting at the coordinated restart slot there is going to be a hard Fork anyway and we will. So that will update this as far.
+**Anonymous:** There shouldn't actually be any changes to that proposal because once we've committed to restarting at the coordinated restart slot there is going to be a hard fork anyway and we will. So that will update the Sysvar.
 
 **Mango Team:** Okay, okay that's cool.
 
