@@ -149,7 +149,8 @@ I think it was Jeff, so go ahead, Jeff, you should be able to unmute to ask your
 
 **Jacob Creech**: Okay, is there any other questions about this, or otherwise we'll go back to you, Zans. All right, Ashwin, go ahead.
 
-**Aswin**: Hey just wanted to ask, if there's a cluster we started in the first thousand blocks, is there any change to change that procedure because the snapshot won't have the result in it? 
+**Aswin**: Hey just wanted to ask, if there's a cluster restart in the first thousand blocks, is there any change to change that procedure because the snapshot won't have the result in it? 
+
 
 **Haoran** : Yeah, we have a talk about this, so in that case, when the snapshot is taken during the reward computation phase, the snapshot has to wait, it has to wait until the result is available and store the result there.
 
