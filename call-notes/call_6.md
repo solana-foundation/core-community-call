@@ -151,7 +151,7 @@ Video |  [22:59](https://youtu.be/GA5AVg_svj8?t=1379)
 
 **Validator Operator** Yes, it did. Thank you.
 
-**Jacob Creech:** Thank you everyone. Thank you `Wen` for presenting today.
+**Jacob Creech:** Thank you everyone. Thank you Wen for presenting today.
 
 If there is anybody else that wants to ask further questions on this SIMD, I posted in the chat. We can take the discussion there. And thank you all for joining another core Community call.
 
