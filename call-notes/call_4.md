@@ -1,4 +1,4 @@
-# Epoch Rewards  V2
+# Core Community Call 4 Notes
 
 Meeting Date : 17 March 2023
 Meeting Duration: 20 mins
@@ -11,7 +11,7 @@ Spreading out reward distribution over multiple blocks as it takes a long time a
 
 ## Speakers
 1. [Jacob Creech](https://github.com/jacobcreech)
-2. [Anatonly](https://github.com/aeyakovenko)
+2. [Anatoly](https://github.com/aeyakovenko)
 3. [Haoran](https://github.com/HaoranYi)
 
 
