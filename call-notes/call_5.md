@@ -119,7 +119,7 @@ I think this is just one of the effects that we're seeing right so that's the on
 
 **Zantetsu:** Yeah my question is only is is there a value in knowing more than the last restart like say there were two restarts within I don't know two hours because there was some problem that recurred would that be useful to know or is it always only the last restart is useful to know? In other words does it really need to be a single value or do you want it to be some like set of `n` values that end most recent restarts.
 
-**Maximilian Schneider:** I think I would rather see what adoption looks like on the single value and then go from there. Is a new feature historic value I find I find it hard to reason about historic values.
+**Maximilian Schneider:** I think I would rather see what adoption looks like on the single value and then go from there. Is a new feature historic value I find it hard to reason about historic values.
 
 **Zantetsu:** Well but I mean in particular you are identifying a use case that you believe covers something that's important to you. I am asking you if you had two restarts that happened within 4 hours, would that change what you would want to know or not?
 
