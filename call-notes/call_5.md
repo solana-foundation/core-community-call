@@ -129,7 +129,7 @@ I wouldn't know what 4 hours ago another restart would change on the current sit
 
 **Zantetsu:** Okay thank you that does answer my question. Thank you.
 
-**Maximilian Schneider:** I had a follow-up for Alex, you mentioned that like the current hard Fork slot is currently synonymous for a restart but there's other ways to trigger a restart but there's no way there's no consensus stage shared about those resources right or is there another way to get those?
+**Maximilian Schneider:** I had a follow-up for Alex, you mentioned that like the current hard fork slot is currently synonymous for a restart but there's other ways to trigger a restart but there's no way there's no consensus stage shared about those resources right or is there another way to get those?
 
 **Alexander MeiBner:**  Yeah it's a kind of the other problem the security issue how are you gonna reach consensus about the restart slots right. But I was really talking just about the terminology that hard fork means that you are diverging on purpose because part of the cluster wants to do something else yeah
 and otherwise it's adjusted fork like any other fork that will get pruned at some point.
