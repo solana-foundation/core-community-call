@@ -51,7 +51,6 @@ Video| [01:02](https://youtu.be/AEnkivbha0k?t=62)
 
 **Maximilian Schneider:** Yeah, one limit we found and I think we were curious about was I think it's like 2,000 transactions every 50 milliseconds like a leaky bucket model.
 
-That would mean that's just to verify concentrate.
 
 **Stephen Akridge:** Yeah, I think like we were talking about in Discord right that's not like a hard limit. The 50 milliseconds is kind of a target for that stage to not like that's the time it is spending to verify and things are coming in behind it right into the channel to get backed up. So we want to make sure that we are pinging the channel like pretty frequently like within 100 milliseconds to make sure that the channel can back up faster than the incoming packet flow. So, I mean it doesn't have a hard requirement right like you have a machine that can basically verify 10,000 transactions in 50 milliseconds. It will clear all of those and it will bring up the new batch and it will verify it. But it is just a way to keep the queue from doing an exponential fill-up. If you have a large batch and you let it fill in behind you and that is even larger than the next batch then you are just like an unbounded condition and that it's not good for the memory in the validator.
 
