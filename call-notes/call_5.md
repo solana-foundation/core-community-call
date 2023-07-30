@@ -43,7 +43,7 @@ Go ahead Max.
 Video| [01:02](https://youtu.be/AEnkivbha0k?t=62)
 -|-
 
-**Maximilian Schneider:** Yeah, so for the QUIC tuning parameters, that was like my request which was that we have someone who worked on it previously lead the discussion. I don't know if someone is here that worked on it. And I can only give the outside perspective of reverse engineering some of those things. But you know, reverse engineering requirements is very difficult sometimes and that was the main request that we get someone who knows all the requirements, maybe to present them. But if there is no one here, then maybe we put it for next time.
+**Maximilian Schneider:** Yeah, so for the QUIC tuning parameters, the thing with that was like my request which was that we have someone who worked on it previously lead the discussion. I don't know if someone is here that worked on it. And I can only give the outside perspective of reverse engineering some of those things. But you know, reverse engineering requirements is very difficult sometimes and that was the main request that we get someone who knows all the requirements and maybe to present them. But if there is no one here, then maybe we put it for next time.
 
 **Jacob Creech:** Stephen Akridge, could you talk a little bit how you all choose tuning for QUIC.
 
