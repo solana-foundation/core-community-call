@@ -142,7 +142,7 @@ and otherwise it's just a fork like any other fork that will get pruned at some 
 
 **Alexander MeiBner:** If people for example say like Bitcoin and Bitcoin Go these are hard folks, well like what they did on Ethereum back in the day. Because the community actually switched to an entirely different protocol version in the restart slot and this is not I mean this is obviously depends on the exact reset scenario but if you are just reloading the same version again always only with minor bug fixes and all that we on the same thing then this is not really hard fork because it's not you're not forking off from anything else. But like what people understand on that term hard fork means that then there are two blockchains and two sets of validators and two networks essentially which do different things. And I mean usually restart tries to avoid that scenario of hard forking and instead come back to one consensus of global networking.
 
-**Jacob Creech:** Alright interesting coming in some time because we are one minute overtime. Let's bring this discussion further into the SIMD. I will post it again in the chat and then we can further the discussion on this specifics SIMD 47 with Max and Alexander and more.
+**Jacob Creech:** Alright just being cognisant of time because we are one minute overtime. Let's bring this discussion further into the SIMD. I will post it again in the chat and then we can further the discussion on this specifics SIMD 47 with Max and Alexander and more.
 
 Thank you all for coming on today on this month's core community call.
 
