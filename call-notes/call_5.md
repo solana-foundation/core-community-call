@@ -117,7 +117,7 @@ I think this is just one of the effects that we're seeing right so that's the on
 
 **Jacob Creech:** I think if no one has any other proposals, we can end here. We can continue the discussion on the SIMD. Zantetsu, you have a question? Go ahead.
 
-**Zantetsu:** Yeah my question is only is is there a value in knowing more than the last restart like say there were two restarts within I don't know two hours because there was some problem that recurred would that be useful to know or is it always only the last restart is useful to know? In other words does it really need to be a single value or do you want it to be some like set of `n` values that end most recent restarts.
+**Zantetsu:** Yeah my question is only is there a value in knowing more than the last restart like say there were two restarts within I don't know two hours because there was some problem that recurred would that be useful to know or is it always only the last restart is useful to know? In other words does it really need to be a single value or do you want it to be some like set of `n` values that end most recent restarts.
 
 **Maximilian Schneider:** I think I would rather see what adoption looks like on the single value and then go from there. Is a new feature historic value I find it hard to reason about historic values.
 
