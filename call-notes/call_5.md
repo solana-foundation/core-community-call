@@ -72,7 +72,7 @@ So there is a couple different solutions to that but you know we didn't like the
 
 **Jacob Creech:** Okay, maybe probably we probably should sync as we go further into the implementation of like what are the different parameters that we have seen because in the future I think as Stephen as you said it was a good default to start with but what is a better performance in the long run would be nice.
 
-**Stephen Akridge:** Saw a question in the chat real fast about the state-based variables. So you have more stake generally gets more bandwidth and more resources and you know say of transactions into the validator. So that's the idea.
+**Stephen Akridge:** Saw a question in the chat real fast about the state-based variables. So more stake generally gets more bandwidth and more resources and you know say of transactions into the validator. So that's the idea.
 
 **Maximilian Schneider:** Which is really cool and like novel. It is like a Solana Innovation you know you've seen that before.
 
