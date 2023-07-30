@@ -62,7 +62,7 @@ So there is a couple different solutions to that but you know we didn't like the
 
 **Jacob Creech:** Just a question for any of people from the Firedancer team. I know that you all have been working on QUIC. Did you all choose similar like received window parameters in tuning or have you all not gotten to that part yet?
 
-**Kelvin Bowers:** I don't think Nick is on this call, he had be the best person to answer it. Let me go see if I can find Nick.
+**Kelvin Bowers:** I don't think Nick is on this call, he would be the best person to answer it. Let me go see if I can find Nick.
 
 **Jacob Creech:** Okay, thank you.
 
