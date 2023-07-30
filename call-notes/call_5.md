@@ -30,7 +30,7 @@ Video| [00:00](https://youtu.be/AEnkivbha0k?t=1)
 
 **Jacob Creech:** Welcome to this month's core community call. So I have posted the agenda in the chat.
 
-So, Max from [Mango](https://youtu.be/AEnkivbha0k?t=1) will be presenting on the [SIMD-0047](https://solana.com/ecosystem/mango), on the new [sysvar](https://youtu.be/AEnkivbha0k?t=1) for the last voted on the slot. And then, he will also want to talk about how the different tuning parameters were chosen for [QUIC](https://blog.changehero.io/what-is-quic-in-solana/).
+So, Max from Mango will be presenting on the [SIMD-0047](https://github.com/solana-foundation/solana-improvement-documents/blob/main/proposals/0047-syscall-and-sysvar-for-last-restart-slot.md), on the new sysvar for the last voted on the slot. And then, he will also want to talk about how the different tuning parameters were chosen for QUIC.
 
 Go ahead Max.
 
