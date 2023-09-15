@@ -6,4 +6,4 @@
 **Agenda**
 
 - Update on 1.16 rollout plan and how to contribute
-- Proposed SIMD process change
+- Discussion of the ramificaitions of Firedancer's approach doesn't forward transactions that don't make it into blocks
