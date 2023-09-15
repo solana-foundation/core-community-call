@@ -6,4 +6,4 @@
 **Agenda**
 
 - Update on 1.16 rollout plan and how to contribute
-- Discussion of the ramificaitions of Firedancer's approach doesn't forward transactions that don't make it into blocks
+- Discussion of the ramificaitions if Firedancer doesn't forward transactions that don't make it into blocks
