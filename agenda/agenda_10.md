@@ -5,4 +5,4 @@
 
 **Agenda**
 
-- TBD
+- [SIMD-72: Feature Gate Threshold Automation](https://github.com/solana-foundation/solana-improvement-documents/pull/72)
