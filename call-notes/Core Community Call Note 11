@@ -1,0 +1,236 @@
+# Core Community Call Notes 11
+
+Meeting Date/Time: Monday November 27th, 2023 19:00 UTC
+
+Meeting Duration: 30:26 mins
+
+Topic: Relaxing Transactions and Entry Contraints
+
+[Video of the meeting](https://www.youtu.be/V7P0nAZjCc0?si=MTwpcvrt2dFF484I)
+
+
+## Speakers
+
+1. [Jacob Creech](https://github.com/jacobcreech)
+2. [Richie Patel](https://github.com/ripatel-jump)
+3. [Andrew Fitzgerald] (https://www.linkedin.com/in/andrew-fitzgerald-4052b4173)
+4. [Liam Heeger](https://github.com/Iheeger-jump)
+5. Lucas Bruder(Buffalo) (https://www.linkedin.com/in/lucasbruder/)
+6. [Galactus | Mango Market](https://github.com/godmodegalactus)
+
+## Meeting Notes
+
+
+### Introduction
+
+
+**Jacob Creech:** okay welcome everyone to this month's core Community call. This month we have Andrew giving a presentation on two SIMDs that he proposed in the past two weeks it's relaxing transaction constraints and I think entry constraints.  So Andrew you can go and take it away. 
+
+**Andrew:** right I'm gonna try and share my screen real quick sorry I'm trying to figure out how to share just the, all right can you all see that
+
+**Jacob Creech:** yep 
+
+**Andrew:** all right cool so yeah there's two SIMDs 82 and 83 that deal with transaction and entry constraints relaxation respectively  mostly I'm going to talk about 82 and if we've got time I think we can get to 83 which is a lot simpler. I'm going to start off by giving some background and motivation for this work and then I'll get into like the details of each of the SIMDs,  so I started looking at this probably a couple months ago and realized that constraints on transactions aren't documented anywhere except the code there's no document that just says this is what a valid transaction is, and so that's something I've been working on. It's still not completed yet but as I was going through that I realized some of these aren't really necessary there's a whole host of checks that we do to make sure that transactions can be executed and these are transactions that could pay fees and then we drop them very late in the processing pipeline when we could record them and take the fees from them except that that breaks consensus right now so I started going through the process of what if we relax this constraint that transactions have to be executable then we could potentially collect more fees if we do see these transactions of course when I started relaxing constraints that which constraints do we actually need  when I was looking at the other constraints as all of this is going on we've been having ongoing discussions about asynchronous execution  and so that was noodling in the back of my mind as I was going through this exercise and sort of a background of async execution there's two questions that we answer on the validator side of things which, Is does this block comply with all the constraints? if it does then it can go into the history and then the consensus side of things which is, What's the result of this block? and then does the network agree with me? async execution is just separating these two questions but right now because of the way that the constraints are built they're very much tied together, you can't answer this first question does the block comply with all constraints without actually executing the block. So what's stopping us from separating these, at least logically right now the SIMDs are not proposing that we go towards async execution it's just moving towards separating these two questions logically but not necessarily making them separated in time, the only thing that's stopping us is account State. On the transaction level this consists of mainly four different checks 
+
+**Jacob Creech:**  hey Andrew, so you're I think you're presenting the keynote but I don't think it's actually going from each slide to slide just as a heads up 
+
+**Andrew:** okay. let me see how I can fix that 
+
+**Jacob Creech:** I don't think it's showing the present like the presentation mode when you're sharing just the keynote 
+
+**Andrew:** got you.
+ 
+**Jacob Creech:**  We could just watch like this 
+
+**Andrew:** okay yeah can you guys see if I like switch slides here 
+
+**Jacob Creech:** yes 
+
+**Richie Patel:** yep 
+
+**Andrew:** okay I will not present I don't know what I'm doing I guess. so yeah at the transaction level this is four checks do the alts resolve and count look up tables if the transaction is a non transaction is the non account valid can the transaction pay the fees and then can the transaction be executed, the last one is probably like 10 different checks rolled into one but the summary of it is can we execute this transaction and SIMD 82 is the relaxation of three of these so the non check, fees pay check and executable check. The SIMD is not a proposal that we remove these checks for execution all of these have to be met in order for the transaction to be executed what it is saying is that if a transaction appears in a block it does not  that breaks one of these constraints, it doesn't invalidate the entire block we can either just not execute the transaction and take no fees or we charge the leader a penalty for including that transaction. these transactions also will count fully towards the block limits as if they were executed with the maximum number of compute units, that just is there to prevent  some denial of service attacks. I had four constraints on the last page and I've only got three here so I think a natural question is why leave in the alt resolution  that's a temporary thing it is still making us dependent on account State for the question of, is this block valid? But there are higher level constraints at the entry and Block Level that make removing this tricky at this time, so I'd like to remove that one at some later Point. Additionally alt resolution is slightly different than the rest of these three constraints the rest of these three constraints, the answer can change based on the execution of transactions within like the block that you're validating whereas the alts are resolved at the beginning of the slot your view of them is essentially Frozen when the slot begins and so transactions within the block that you're validating can't change the alt resolution. So that makes it so you can validate a block and just answer the question does this block meet all the constraints without executing the block as long as you've executed previous blocks. I kind of already talked about these and I'm just going to skip a slide and go to the benefits and drawbacks so like I mentioned this lets us validate the block just say does this block meet all of the constraints and can it go into history without
+actually executing the block. It also simplifies the protocol in some sense because now there are a lot fewer constraints on what can go into a block, we still have obviously to document
+like the executable checks which is the most complicated part but it separates that from what is a valid transaction, and not gives a lot more freedom in Block packing as well I'm not suggesting that the lab's client do this but it enables something like a probabilistic fee cash where if I see some account has 500 soul and they've had 10,000 recent transactions all paying fees maybe I just assume that they're going to pay their fees correctly and I just record their transactions without doing strict checks, whereas with the strict constraint that all transactions have to
+pay fees you can't do something like that, terms of drawbacks it's consensus breaking, needs a feature gate it's not a huge drawback but just something to note, with the non check it introduces the possibility that ancient non transactions which are no longer in the status cache could be repeated in the history if the leader isn't doing a good job now we can still check that that not account is valid before execution so the transaction would have no effect on state but it introduces the possibility that we have duplicate transactions in the history, depending on how we decide to do punishment for non fee paying transactions you could have transactions that pay no fees and then on the SIMD there have been discussions about potential denial of service attacks I think the main thing on the simd that I missed and did not clarify was the fact that these transactions are still counting towards block limits as if they were executed with all of their compute units which prevents a lot of the attacks that have
+been mentioned um the main thing I was hoping for input from you guys on is how should we handle these transactions that can't pay fees. Right now there have been sort of two competing perspectives on how to handle these, one is that the leader is in running an auction and they are selling you compute if they fail to collect the fees the punishment is that they don't get that reward. But there's also this perspective that when transactions pay fees they are burning half of it and that burning implicitly compensates the rest of the network for validating these transactions. Which would lead to the idea that if we have these non fee paying transactions then the leader has to make up for it in some way by either paying those fees or paying some you know other fee associated with a bad transaction.
+yeah I  think we can pause here and maybe open it up for questions and feedback. Is anyone totally opposed to this what do you guys think about how we should handle these non-fee paying transactions yeah
+
+**Jacob Creech:**  go for Richie 
+
+**Richie Patel:** yeah I guess I'll start with, I think this is a great proposal it puts us further into the direction of backlist leaders I think the concern of possible Doss by not charging fees at all is a bit of a risk. I don't see that you would want to do this attack but  there is an attack where like a you know block producer could create a maximum size block that is you know just contains transactions that always fail they cannot pay any fees and so 
+
+**Andrew:** only this is this would only happen if it's a
+malicious leader right
+
+**Richie Patel:** Yeah
+
+**Andrew:** because a normal leader is going to filter those I kind of think that a possible mitigation would be to charge the leader the fees 
+
+**Richie Patel:** yeah that's what I'm thinking too doesn't have yeah 
+
+**Andrew:**  I had not written that in the original proposal but since some discussion has been ongoing there that is definitely where I'm leaning right now I haven't changed the proposal because I wanted feedback on this call first, but yeah 
+
+**Richie Patel:** I don't think we need to blocked by this attack because if the block limits are enforced like the compute limits and everything else it's like kind of pretty benign to have a bunch of junk data like it's okay like 
+
+**Galactus:**  execution should be faster I hope right you like skip you should you should be able to fail those quickly in replay so you're just wasted some some of the bandwidth 
+
+**Richie Patel:** well it's kind of annoying because it makes the DA layer of Solana so to say completely free anyone can use turbine to distribute cluster wide junk data and nobody pays for it well 
+
+**Galactus:** no you have to have stake to do it you have to be staked right 
+
+**Richie Patel:** oh yeah that's a good point and you don't get any rewards if you don't have identity key balance to vote so you would lose money if you you know if you have zero balance and you know we can't withdraw from the leader as a punishment if it has zero balance but then the leader would lose out on these staking rewards there by punishing it if we do charge a fee from the leader for these transactions I mean it's that seems like a very simple change to do right yeah 
+
+**Galactus:** you'd need to like there's a couple dependencies on that for the leader to be in the leader schedule their vote account would need to have a certain balance right that would be like you would add the constraint there so then 
+
+**Richie Patel:** yeah you wouldn't charge the vote account you would charge the identity account because this account also gets reported 
+
+**Galactus:** yeah 
+
+**Richie Patel:** with transaction fees 
+
+**Galactus:** yep 
+
+**Andrew:** yeah I did a quick calculation this morning of basically if the minimum number of slots you can get allocated in the leader schedule is four if they packed like the smallest transactions they could with like assuming one signature it'd be like just under one Soul as like a minimum balance so I think there's already some ongoing changes to make one Soul the minimum balance so I don't think we need to make any changes there and that effectively if they were running an attack like this it's sort of
+a self-solving problem because they get removed from the next leader schedule 
+
+**Richie Patel:** why would they get removed 
+
+**Andrew:** if we charge, if we take away their stake for punishment on these transactions we charge them the fees 
+
+**Richie Patel:** oh okay but isn't a mechanism that does this punishment a bit more complicated than just charging the fees or I might be misunderstood 
+
+**Andrew:**  I suppose my what I'm saying is that the punishment is being charged those fees oh 
+
+**Richie Patel:** yeah awesome okay 
+
+**Andrew:** I think we're saying same thing 
+
+**Richie Patel:** cool 
+
+**Andrew:**  Another question I guess if we're leaning towards charging them fees,  normally fees are paid 50% to them what do you guys think that, that's reasonable that they're just like essentially paying half the fees or should they be basically burning 100% of the fees as punishment 
+
+**Richie Patel:** sounds like a bit of an implementation detail 
+
+**Galactus:** yeah I think that's like we can figure that out later 
+
+**Richie Patel:** okay 
+
+**Andrew:** yeah sounds good but sounds like everybody is leaning towards charging the leader fees for  if these transactions don't or sorry either validate or invalidate the non check or the be thing check 
+
+**Richie Patel:** yep 
+
+**Andrew:** okay cool 
+
+**Galactus:** it might be easier to charge the vote account so like whatever implementation constraints those would need to be kind of pushed to vote when the leader schedule is generated 
+
+**Andrew:**  got you yeah 
+
+**Jacob Creech:** sorry if we want to charge the leader all of those uh fees and they get drained let's say they get drained like at the beginning of an Epoch and they still have a lot of leaders slots 
+
+**Galactus:** that's why they need they we will need to have like a basically a balance check for their whatever constraint is to be in the leader schedule 
+
+**Jacob Creech:** and that would be multiplied by the number of leader slots they have 
+
+**Galactus:** yep
+
+**Jacob Creech:** okay 
+
+**Andrew:**  yeah that that doesn't strictly prevent them from being drained
+ because there's really to my knowledge Like There's No Cap no like reasonable cap on what fees could be charged, so they could insert a bunch of like Max priority transactions, which I don't think we want to enforce that they can have that many Max priority transactions in a block 
+
+**Richie Patel:** what does it matter if there are what priority there
+
+**Andrew:**  priority, it doesn't for execution I'm just saying like if they inserted Max priority transaction that can't pay fees they have to have that that make introduces the possibility even if we have like a minimum balance they could still be drained 
+
+**Richie Patel:** can you just like check before you start executing the block if they have something like greater than whatever threshold balance and then you just skip their block if do if they do so they if they drain it then they're drained for one block  
+
+**Galactus:** you can't,  it's really hard to adjust the leader schedule outside of the Epic boundary 
+
+**Richie Patel:** yeah you would just skip them you wouldn't adjust  that's all would just be dead 
+
+**Galactus:** you can't have you do you don't have a guarantee that everyone that's observing the network has is in the same state where they decided that that leader should be skipped or not 
+
+**Richie Patel:** yeah I guess you'd have to make it part of the like Fork choice execution like when you start executing the block do you think that they have fees yeah I don't know maybe it's more complicated 
+
+**Andrew:** yeah I think adding that check would sort of mean that we are adding another constraint that sort of prevents us from async execution because you need to check the fee the leader balance before the block 
+
+**Richie Patel:** yeah good point 
+
+**Andrew:** dependent on previous blocks 
+
+**Galactus:** just this like the draining doesn't need to cover the fees that you would expect as a network it just needs to cover the cost which in this case is just bandwidth right like it's just enough of a deterrent that it's pointless to do it as a Spam attack 
+
+**Richie Patel:** yeah that's a very good point I would charge them proportional to the size and not charge them the actual fee that this transaction
+specifies 
+
+**Andrew:** oh got you.  You're basically saying don't charge them the fees but charge them some separate penalty that's based on the size of the transaction 
+
+**Richie Patel:** yeah
+
+**Andrew:** okay that yeah that seems reasonable um sort of like an implementation detail 
+
+**Richie Patel:** is the old solana fee is making a comeback 
+
+**Jacob Creech:** so sorry I want to come back to this because to me I think what we should optimize for is still getting people's transactions in like liveness number one like if someone can't pay for these extra transactions but there are still valid transactions in that block we should probably prioritize getting those executed right 
+
+**Galactus:** I don't follow like what do you mean 
+
+**Jacob Creech:** like if someone if someone creates a block some of the transactions are going to get rejected and they don't have enough  to potentially pay for whatever you guys fees you want to 
+
+** Galactus:** yeah, the whole block should get executed, there's just like a cost to the leader to include junk and to make sure that the leader can pay the cost they need like a minimum sold balance at the start of the epoch and their vote account or whatever account that's hard to withdraw for during the epoch that make sense 
+
+**Jacob Creech:** yeah okay as long as we're optimizing that we can still get transactions in that's that to me seems more important 
+
+**Galactus:** well it's like it's going to be like unlikely that somebody has like some valid transactions but then is also doing a denal service in the network unless there's a bug in the implementation 
+
+**Andrew:** right, yeah. I think the main concern with this is that you've got someone who's intentionally putting these transactions in a block rather than 
+
+**Richie Patel:** yeah 
+
+**Andrew:** or because of a bug like we  mentioned 
+
+**Richie Patel:** just the SIMD include relaxing the entry constraints or is that separate 
+
+**Andrew:** so that's what SIMD 83 is we can move to that if  nobody else has any more comments, all right yeah this one's a lot shorter and a lot easier Right Now entries can't contain conflicting transactions that's not really too necessary, I think this is kind of lived on as like a legacy of the old implementation as well as just it makes it easier to parallelize in the current Labs  code but it's not strictly necessary, and this check also depends on us resolving the alts because we can't tell which transactions conflict with each other plus we look at the account lookup tables.  SIMD 83 just removes this constraint entirely and says you can put whatever transactions you want in any entry this allows for more freedom in the block production, it also allows for more efficient networking so right now if I wanted to record like five or 10 transactions that conflict with each other I have to put them in separate entries and those get sent out over turbine individually, whereas now if they're in just a single entry they can be Shreded together and sent out is really one packet, and then yeah it gets us one step closer to async execution because now the entry constraints no longer have a dependence on account State. terms of drawbacks pretty minimal on this one it's basically just that we need a feature gate, and I was talking to Steve yesterday but I'm not even sure that this is possible right now the way that the labs client does replay is we receive the entire entry and then we will process it, it might be technically possible where you receive like a partial entry and begin executing I'm not 100% sure it is, but if that is possible this SIMD would make that impossible Because unless you receive the partial entries like in the order you don't know that previous transactions in the entry don't conflict with them so you sort of have to receive
+at least in order, but again I'm not convinced that that's even possible with like the way that we deserialize these  shreds into entries 
+
+**Richie Patel:** it's a cool idea I think it's possible knowing the 
+
+**Liam:**: I mean transactions aren't fixed size right so you you have like scan to fine like transaction boundary 
+
+**Richie Patel:** yeap 
+
+**Andrew:** yeah that that was the part I wasn't sure about is like identifying if I receive like the ninth shred of 10 I don't know how to identify where a transaction within that like arbitrary slice begins and ends 
+
+**Galactus:** yeah binning transactions to shreds it's something that we talked about but I don't it doesn't really depend on removing this constraint but I think that would be a totally separate thing the benefit there is that you could do signature verification of the shred and the transaction totally in a separate pipeline like as you're receiving shreds but it's that would be a more complex change 
+
+**Andrew:** right 
+
+**Richie Patel:** I'd love to see this constraint go because it kind of keeps the schedule list hands tight behind its back but there needs to be some upper boundary like for example if like there are two types of clients for you know I guess like finance and Labs or whatever and one of them consistently has a lower limit on the complexity of a graph that it can execute,  it could somewhat split the network and it's super easy to measure that because if you have a sequential dependency chain so you know transactions that all right to the same account and they all only load in the same small set of accounts that is can completely fit in in cache and it's pretty much CPU bound because it's only it's as fast as the VM can execute if you have a lot of transaction writing to the same account but all of them also reading a very wide set of accounts then it becomes data bound because you then have to wait for all of these accounts to arrive every single sequence dependency step, Liam who can unfortunately not join the meeting for Zoom buggy reasons has also done a lot of research into this scheduling but I think we might need to come up with some mechanism to like have some heuristic how expensive a block is going to be given some arbitary graph 
+
+**Liam:** hey can you guys hear me 
+
+**Richie Patel:** oh he's there 
+
+**Andrew:** yep 
+
+**Liam:** hey sorry excuse the background I'm in an airport right now. I just yeah I was not able to join for a minute but I was able to figure it out, basically yeah we're working on something to actually like  help the network agree on what the actual cost of running a block is in real time, that's outside of the current CU model, we're still working on this and I'm still like passing the idea around and work and kind of workshopping it. But the basic idea is that like box actually takes some amount of time for the network to process the it's not just runtime it's also like Network distribution time and all these other things and there could be idiocratic reasons why hey a block takes a lot longer to send around as well as execute. So we're working on a proposal to address the issue of like hey this block takes a lot longer everybody's going to have to wait around and do this execution, so leader should probably have to you know pay for that a little bit so yeah I'm really, I think what you guys are talking about 82 and 83 correct yes I think I'm pretty happy with these proposals I think my one big thing is that I'd love to just
+Define what the new constraints now that we're going to do this thing what are the now the constraints on transactions and I know that's a bit of like an exploratory thing to have to do but and I'm happy to help figure out what and spec out what those actually those new constraints now are on like on entries and on transactions. 
+
+**Andrew:** yep yeah uh I will work next week on rewriting some sections of the SIMD to be very explicit about what the new constraints are for both inclusion in a block and then for like execution of a transaction so I'm planning to do that I just haven't done it quite yet 
+
+**Liam:** That's ok. it's going to take a while to kind of figure this all out 
+
+**Andrew:**  yeah in terms of like the cost modeling I might have misunderstood Richard what Richard was saying but I don't think that something new with removing the constraint on entries right like feasibly I could just put those in separate entries and still create a block that's very expensive to execute, even if it complies with CU limits 
+
+**Richie Patel:** yeah maybe I don't know the constraints on the entry counts for example too well 
+
+**Liam:** well so another thing to think about and I brought this up with the call with Andrew and a few others which is that you have to think about like an entry or I may use the term micro block because that's what we call them at fire dancer but we may call an entry, a, you'll see an entry come over the network right and the entry is like one packet coming over the network and so sometimes they'll come very burst they'll come very bursty or you'll  just see one of these and you want to process like it's very easy and efficient to process individual packets start executing individual packets of transactions and so having this constraint that like you can't have multiple rights there of slows us down fundamentally because sometimes it does like we are doing packet level processing at this point so we have to be really careful about how many dependencies we produce 
+
+**Jacob Creech:** in just being mindful of time because we are at time real quick if anybody wants to continue discussing we you're welcome to stay keep discussing for anybody that wants to propose an agenda item for next month, you can propose on the core Community call repository here, but yeah if anybody has any other questions go and ask otherwise we can continue discussion in the SIMD and on Discord okay thank you Andrew for presenting and thank you everyone for coming for the discussion 
+
+**Andrew:**  Thanks for giving me the time 
+
+**Jacob Creech:** Right we'll see you all next week month
+
+
