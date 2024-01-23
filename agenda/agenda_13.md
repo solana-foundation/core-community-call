@@ -9,3 +9,4 @@
   - [Base fees in Solana by Mango](https://mango-markets.notion.site/Base-fees-in-Solana-83af1d7eafc848fdb726a64748281f87)
   - [SIMD-108 Transaction size fee](https://github.com/solana-foundation/solana-improvement-documents/pull/108)
   - [SIMD-109 Add in a built in tipping mechanism where transactions can send SOL to the current leader](https://github.com/solana-foundation/solana-improvement-documents/pull/109)
+  - [SIMD-110 expoential write lock fee](https://github.com/solana-foundation/solana-improvement-documents/pull/110)
