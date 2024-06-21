@@ -6,6 +6,4 @@
 
 **Agenda**
 
-- Solana Transport Layer v1.0 
-   - The STL (Solana Transport Layer) is a partial redesign of the Solana peer-to-peer network stack from first principles, with a focus on security and high performance.
 - Please append your topics suggestions.
