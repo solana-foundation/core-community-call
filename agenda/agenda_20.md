@@ -7,3 +7,9 @@
 
 - Brian Long will give an update on Old Faithful, the new archival project for Solana
   - https://docs.triton.one/project-yellowstone/old-faithful-historical-archive/old-faithful-public-report
+- Breakpoint materials
+  - [Technical stage Day 1](https://www.youtube.com/watch?v=Go_VxO6v03g&list=PLilwLeBwGuK7k3Bz7DsoHejtVBtDgwelZ)
+  - [Technical stage Day 2](https://www.youtube.com/watch?v=r0NEpM1fQ-4&list=PLilwLeBwGuK6Y0bdsYq9YVcuno0EbWz-A)
+  - [Kevin's main stage FD talk](https://www.youtube.com/watch?v=8sl3RcN2Rdk&t=45s)
+
+
