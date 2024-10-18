@@ -5,5 +5,5 @@
 
 **Agenda**
 
-- Samczsun has a presentation on Secruity Alliance (SEAL) can collaborate with protocol devs
--- They have emergency response, runbooks and wargames among other initiatives
+- Brian Long will give an update on Old Faithful, the new archival project for Solana
+  - https://docs.triton.one/project-yellowstone/old-faithful-historical-archive/old-faithful-public-report
