@@ -1,5 +1,5 @@
 **Meeting Info**
-- March 21, 2025 19:00 UTC 
+- March 21, 2025 17:00 UTC 
 - Duration: 30 minutes
 
 **Agenda**
