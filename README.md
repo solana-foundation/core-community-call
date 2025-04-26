@@ -16,7 +16,10 @@ The Core Community Call is open for anyone to join and comment on. People that j
 
 ## Agendas
 
-The agendas for each upcoming call are tracked in `/agenda`. To add an item to the agenda, PR to the latest agenda file mentioning the topic you'd like to discuss and links to any relevant material (SIMDs, POCs, etc).
+The agendas for each upcoming call are tracked in `/agenda`. 
+
+### Agenda Submission
+To propose a topic, see the [topic-submissions/submission_template.md](topic-submissions/submission_template.md). Open a PR <u>with a new file</u> containing your submission from the template.
 
 Anyone is welcome to add an item to the agenda as long as it follows these guidelines:
 
